@@ -54,7 +54,19 @@ begin
     baris_geometri := a * pangkat(r, trunc(n-1)); //rumus baris geometri
 end;
 //===============================================================
-
+//=====================PROCEDURE TABEL===========================
+procedure tabel;
+begin
+    gotoxy(45,2);write('==========================================================');
+    gotoxy(45,3);write('==                     \\((HASIL))//                    ==');
+    gotoxy(45,4);write('==========================================================');
+    gotoxy(45,5);write('==                                                      ==');
+    gotoxy(45,6);write('==                                                      ==');
+    gotoxy(45,7);write('==                                                      ==');
+    gotoxy(45,8);write('==========================================================');
+end;
+//===============================================================
+//===============================================================
 //=====================PROGRAM UTAMA=============================
 begin 
     keluar:
@@ -83,8 +95,8 @@ begin
                 write('Masukan Pola nya           (b): '); readln(nilai[1].pola_suku);
                 hasil:=deret_aritmatika(nilai[1].suku_ke,nilai[1].suku_awal,nilai[1].pola_suku); //masuk ke function sekaligus mengisialisasi nilainya
                 writeln;
-                writeln('=====HASIL=====');
-            writeln('Suku ke-',nilai[1].suku_ke,' dengan nilai ',hasil:0:2); //ini hasilnya
+            tabel;
+            gotoxy(60,6);writeln('Suku ke-',nilai[1].suku_ke,' dengan nilai: ',hasil:0:2); //ini hasilnya
             end
 //=====================================================================================================
 //==============================PROGRAM UTAMA BARIS ARITMATIKA=========================================
@@ -97,8 +109,8 @@ begin
                 write('Masukan Pola nya           (b): '); readln(nilai[2].pola_suku);
                 hasil:=baris_aritmatika(nilai[2].suku_ke,nilai[2].suku_awal,nilai[2].pola_suku); //masuk ke function sekaligus mengisialisasi nilainya
                 writeln;
-                writeln('=====HASIL=====');
-                writeln('Suku ke-',nilai[2].suku_ke,' dengan nilai ',hasil:0:2); //ini hasilnya
+                tabel;
+                gotoxy(60,6);writeln('Suku ke-',nilai[2].suku_ke,' dengan nilai ',hasil:0:2); //ini hasilnya
             end
 //====================================================================================================
             else if pilih = 3 then
@@ -129,8 +141,8 @@ begin
                 write('Masukan Rasio nya          (r): '); readln(nilai[3].pola_suku);
                 hasil:=deret_geometri(nilai[3].suku_ke,nilai[3].suku_awal,nilai[3].pola_suku); //masuk ke function sekaligus mengisialisasi nilainya
                 writeln;
-                writeln('=====HASIL=====');
-                writeln('Suku ke-',nilai[3].suku_ke,' dengan nilai ',hasil:0:2); //ini hasilnya
+                tabel;
+                gotoxy(60,6);writeln('Suku ke-',nilai[3].suku_ke,' dengan nilai ',hasil:0:2); //ini hasilnya
             end
 //====================================================================================================
 //==============================PROGRAM UTAMA BARIS GEOMETRI==========================================
@@ -143,8 +155,8 @@ begin
                 write('Masukan Pola nya           (r): '); readln(nilai[4].pola_suku);
                 hasil:=baris_geometri(nilai[4].suku_ke,nilai[4].suku_awal,nilai[4].pola_suku); //masuk ke function sekaligus mengisialisasi nilainya
                 writeln;
-                writeln('=====HASIL=====');
-                writeln('Suku ke-',nilai[4].suku_ke,' dengan nilai ',hasil:0:2); //ini hasilnya
+                tabel;
+                gotoxy(60,6);writeln('Suku ke-',nilai[4].suku_ke,' dengan nilai ',hasil:0:2); //ini hasilnya
             end
 //====================================================================================================
             else if pilih = 3 then
@@ -163,10 +175,15 @@ begin
     end
     else
         begin
-            writeln('==SOON==');
+            gotoxy(80,5);writeln('=========\(^_^)/========');
+            gotoxy(80,6);writeln('========================');
+            gotoxy(80,7);writeln('==                    ==');
+            gotoxy(80,8);writeln('==         SOON       ==');
+            gotoxy(80,9);writeln('==                    ==');
+            gotoxy(80,10);writeln('========================');
             delay(1000); //untuk delay 1000 milidetik (1 detik) biar gak langsung kembali
             goto keluar; //kembali
         end;
-    write('Mau Ulang Y/y ? '); readln(ulang);
+    gotoxy(1,12);write('Mau Ulang Y/y ? '); readln(ulang);
     until (ulang <> 'Y') and (ulang <> 'y'); //untuk perulangan
 end.
